@@ -1,0 +1,55 @@
+%define module pylast
+
+Summary:	Python interface to Last.fm
+Name:		python-%{module}
+Version:	1.8.0
+Release:	1
+License:	GPLv2+
+Group:		Development/Python
+Url:		https://github.com/pylast/pylast
+Source0:	%{module}-%{version}.tar.gz
+BuildRequires:	python-setuptools
+BuildRequires:	pkgconfig(python)
+BuildArch:	noarch
+
+%description
+Python interface to Last.fm and other API-compatible websites
+such as Libre.fm.
+
+%files
+%dir %{py_puresitedir}/pylast
+%{py_puresitedir}/pylast/*
+%{py_puresitedir}/pylast-%{version}-py%{py_ver}.egg-info
+
+#----------------------------------------------------------------------------
+
+%package -n python3-%{module}
+Summary:	Python 3 interface to Last.fm
+Group:		Development/Python
+BuildRequires:	python3-setuptools
+BuildRequires:	pkgconfig(python3)
+
+%description -n python3-%{module}
+Python 3 interface to Last.fm and other API-compatible websites
+such as Libre.fm.
+
+%files -n python3-%{module}
+%dir %{py3_puresitedir}/pylast
+%{py3_puresitedir}/pylast/*
+%{py3_puresitedir}/pylast-%{version}-py%{py3_ver}.egg-info
+
+#----------------------------------------------------------------------------
+
+%prep
+%setup -qn %{module}-%{version}
+
+cp -a . %{py3dir}
+
+%build
+
+%install
+%__python setup.py install --root=%{buildroot}
+
+pushd %{py3dir}
+%__python3 setup.py install --root=%{buildroot}
+popd
