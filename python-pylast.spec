@@ -7,7 +7,7 @@ Release:	1
 License:	GPLv2+
 Group:		Development/Python
 Url:		https://github.com/pylast/pylast
-Source0:	https://github.com/pylast/pylast/archive/%{version}/%{name}%{version}.tar.gz
+Source0:	https://github.com/pylast/pylast/archive/%{version}/%{name}-%{version}.tar.gz
 BuildRequires:	python-setuptools
 BuildRequires:	pkgconfig(python)
 BuildArch:	noarch
