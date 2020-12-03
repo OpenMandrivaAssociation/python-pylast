@@ -2,8 +2,8 @@
 
 Summary:	Python interface to Last.fm
 Name:		python-%{module}
-Version:	3.1.0
-Release:	2
+Version:	4.0.0
+Release:	1
 License:	GPLv2+
 Group:		Development/Python
 Url:		https://github.com/pylast/pylast
