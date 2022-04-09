@@ -11,6 +11,8 @@ Source0:	https://github.com/pylast/pylast/archive/%{version}/%{module}-%{version
 BuildRequires:	python-setuptools
 BuildRequires:  python3dist(setuptools-scm)
 BuildRequires:	pkgconfig(python)
+BuildRequires:  python3dist(pip)
+BuildRequires:  python3dist(wheel)
 BuildArch:	noarch
 
 %description
