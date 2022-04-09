@@ -10,6 +10,10 @@ Url:		https://github.com/pylast/pylast
 Source0:	https://github.com/pylast/pylast/archive/%{version}/%{module}-%{version}.tar.gz
 BuildRequires:	python-setuptools
 BuildRequires:	pkgconfig(python)
+BuildRequires:  python3dist(setuptools-scm)
+BuildRequires:  python3dist(pip)
+BuildRequires:  python3dist(wheel)
+BuildRequires:  python3dist(tomli)
 BuildArch:	noarch
 
 %description
