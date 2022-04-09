@@ -13,6 +13,7 @@ BuildRequires:  python3dist(setuptools-scm)
 BuildRequires:	pkgconfig(python)
 BuildRequires:  python3dist(pip)
 BuildRequires:  python3dist(wheel)
+BuildRequires:  python3dist(tomli)
 BuildArch:	noarch
 
 %description
