@@ -9,6 +9,7 @@ Group:		Development/Python
 Url:		https://github.com/pylast/pylast
 Source0:	https://github.com/pylast/pylast/archive/%{version}/%{module}-%{version}.tar.gz
 BuildRequires:	python-setuptools
+BuildRequires:  python3dist(setuptools-scm)
 BuildRequires:	pkgconfig(python)
 BuildArch:	noarch
 
