@@ -2,8 +2,8 @@
 
 Summary:	Python interface to Last.fm
 Name:		python-%{module}
-Version:	4.0.0
-Release:	5
+Version:	7.1.0
+Release:	1
 License:	GPLv2+
 Group:		Development/Python
 Url:		https://github.com/pylast/pylast
@@ -28,7 +28,7 @@ such as Libre.fm.
 #----------------------------------------------------------------------------
 
 %prep
-%setup -qn %{module}-%{version}
+%setup -qn %{module}-%{version} -n pylast-7.1.0
 
 %build
 
