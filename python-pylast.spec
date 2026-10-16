@@ -1,36 +1,32 @@
 %define module pylast
 
-Summary:	Python interface to Last.fm
 Name:		python-%{module}
-Version:	7.1.0
-Release:	2
-License:	GPLv2+
+Version:	7.2.0
+Release:	1
+Summary:	Python interface to Last.fm
+License:	Apache-2.0
 Group:		Development/Python
-Url:		https://github.com/pylast/pylast
-Source0:	https://github.com/pylast/pylast/archive/%{version}/%{module}-%{version}.tar.gz
-BuildRequires:	python-setuptools
-BuildRequires:	pkgconfig(python)
-BuildRequires:  python3dist(setuptools-scm)
-BuildRequires:  python3dist(pip)
-BuildRequires:  python3dist(wheel)
-BuildRequires:  python3dist(tomli)
+URL:		https://github.com/pylast/pylast
+Source0:	https://files.pythonhosted.org/packages/source/p/%{module}/%{module}-%{version}.tar.gz
+BuildRequires:	python
+BuildRequires:	python%{pyver}dist(hatchling)
+BuildRequires:	python%{pyver}dist(hatch-vcs)
+BuildRequires:	python%{pyver}dist(httpx2)
+BuildRequires:	python%{pyver}dist(pip)
+BuildRequires:	python%{pyver}dist(wheel)
+BuildSystem:	python
 BuildArch:	noarch
 
 %description
 Python interface to Last.fm and other API-compatible websites
-such as Libre.fm.
+such as Libre.fm. Speaks HTTP through httpx2.
+
+%build -p
+# The sdist is not a git checkout, so the versioning backend needs the version.
+export SETUPTOOLS_SCM_PRETEND_VERSION=%{version}
 
 %files
-%dir %{py_puresitedir}/pylast
-%{py_puresitedir}/pylast/*
-%{py_puresitedir}/pylast-%{version}-py%{py_ver}.egg-info
-
-#----------------------------------------------------------------------------
-
-%prep
-%setup -qn %{module}-%{version} -n pylast-7.1.0
-
-%build
-
-%install
-%__python setup.py install --root=%{buildroot}
+%doc README.md
+%license LICENSE.txt
+%{py_sitedir}/%{module}
+%{py_sitedir}/%{module}-%{version}.dist-info
